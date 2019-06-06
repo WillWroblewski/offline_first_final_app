@@ -1,4 +1,5 @@
 import * as types from './consts';
+import { markActionsOffline } from 'redux-offline-queue';
 
 export const addRepositorySuccess = repositories => {        
     return {
@@ -7,13 +8,11 @@ export const addRepositorySuccess = repositories => {
     }
 }
 
-/*
-    Agora a requisição na api é feita dentro de uma função generator no redux-saga,
-    disparada pela execução da ação de REQUEST...
-*/
 export const addRepositoryRequest = name => {            
     return {
         type: types.REQUEST_REPOSITORY,
-        payload: name
+        payload: name        
     }
 }
+  
+markActionsOffline({ addRepositoryRequest }, ["addRepositoryRequest"])
