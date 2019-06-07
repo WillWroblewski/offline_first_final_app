@@ -1,16 +1,21 @@
 import React from 'react';
+import { Provider } from "react-redux";
 import { StyleSheet, View } from 'react-native';
 import RepositoryList from './components/repositories/RepositoryList';
 
-import store from "./store/store";
+import configureStore  from "./store/store";
 
-import { Provider } from "react-redux";
+import { PersistGate } from 'redux-persist/integration/react';
+
+let { store, persistor } = configureStore();
 
 const App = () => (
   <Provider store={store}>
-      <View style={styles.container}>
-        <RepositoryList />
-      </View>
+      <PersistGate loading={null} persistor={persistor}>
+        <View style={styles.container}>
+          <RepositoryList />
+        </View>
+      </PersistGate>
   </Provider>
 );
 
