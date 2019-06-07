@@ -2,7 +2,7 @@ import { createStore, applyMiddleware } from "redux";
 import createSagaMiddleware from 'redux-saga';
 import { offlineMiddleware, suspendSaga, consumeActionMiddleware } from 'redux-offline-queue'
 
-import rootReducer from "./reducers";
+import rootReducer from "./ducks";
 import rootSaga from '../store/sagas/index';
 
 const middlewares = [];

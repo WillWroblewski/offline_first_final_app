@@ -1,7 +1,7 @@
 import { call, put } from "redux-saga/effects";
 import api from "../../services/api";
 
-import * as RepositoryActions from "../repositories/actions";
+import { Creators as RepositoryActions } from "../ducks/repositories";
 
 export default function* addRepository(action) {  
 

@@ -1,12 +1,12 @@
 import { all, spawn, takeEvery } from "redux-saga/effects";
 
-import * as types from '../repositories/consts';
+import { Types } from '../ducks/repositories';
 import { startWatchingNetworkConnectivity } from './offline'
 import addRepository from './repository';
 
 export default function* rootSaga() {        
     yield all([
         spawn(startWatchingNetworkConnectivity),
-        takeEvery(types.REQUEST_REPOSITORY, addRepository)
+        takeEvery(Types.REQUEST, addRepository)
     ]); 
 }

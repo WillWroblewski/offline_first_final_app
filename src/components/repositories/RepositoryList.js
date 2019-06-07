@@ -4,7 +4,7 @@ import { View, Button, Text } from 'react-native';
 import { connect } from 'react-redux';
 import { bindActionCreators } from 'redux';
 
-import * as RepositoryActions from '../../store/repositories/actions'
+import { Creators as RepositoryActions } from '../../store/ducks/repositories'
 
 const styles = {
     container: {
